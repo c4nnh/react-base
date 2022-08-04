@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 import tw, { theme } from 'twin.macro'
 
 function App() {
+  const { t, i18n } = useTranslation()
+
   return (
-    <div>
+    <div className="flex flex-col">
       <span className="text-green-500">React base</span>
       <StyledDiv>Styled Div</StyledDiv>
       <StyledWithAttrsDiv>Styled With Attrs Div</StyledWithAttrsDiv>
@@ -13,6 +16,14 @@ function App() {
       </StyledWithPropsDiv>
       <TwinMacroDiv>Twin Macro Div</TwinMacroDiv>
       <ThemeOfTwinMacroDiv>Theme Of Twin Macro Div</ThemeOfTwinMacroDiv>
+      <span>{t('usingI18next')}</span>
+      <span>Selected language: {i18n.language}</span>
+      <button className="bg-red-200" onClick={() => i18n.changeLanguage('en')}>
+        EN
+      </button>
+      <button className="bg-blue-200" onClick={() => i18n.changeLanguage('vi')}>
+        VI
+      </button>
     </div>
   )
 }
