@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import tw, { theme } from 'twin.macro'
 import { useAuthStore } from './store'
 import { Navigate } from 'react-router-dom'
+import { Button, Checkbox } from '@mui/material'
 
 function App() {
   const { t, i18n } = useTranslation()
@@ -31,6 +32,9 @@ function App() {
       <button className="bg-blue-200" onClick={() => i18n.changeLanguage('vi')}>
         VI
       </button>
+      <Button variant="text">Text</Button>
+      <Checkbox defaultChecked />
+      <Checkbox defaultChecked color="secondary" />
     </div>
   )
 }
