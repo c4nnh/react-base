@@ -6,7 +6,7 @@ import { Login } from './Login'
 export const Auth: React.FC = () => {
   const { user } = useAuthStore()
 
-  if (!user) {
+  if (user) {
     return <Navigate to="/" replace />
   }
 
