@@ -2,9 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import tw, { theme } from 'twin.macro'
+import { useAuthStore } from './store'
+import { Navigate } from 'react-router-dom'
 
 function App() {
   const { t, i18n } = useTranslation()
+  const { user } = useAuthStore()
+
+  if (!user) {
+    return <Navigate to="/auth" replace />
+  }
 
   return (
     <div className="flex flex-col">
