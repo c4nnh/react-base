@@ -19,3 +19,7 @@ export type User = {
   id: string
   username: string
 }
+
+export type UserParams = {
+  username?: string
+}
